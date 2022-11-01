@@ -1,4 +1,6 @@
 '''
+Iterative in-order traversal:
+
 Time complexity: O(n)  n <- number of nodes
 Space complexity: O(h)  h <- height of the tree
 
@@ -16,16 +18,16 @@ class Node:
         self.right = right
 
 
-def inorder(node: Node):
+def inorder_recursive(node: Node):
     if node is None:
         return
 
-    inorder(node.left)
+    inorder_recursive(node.left)
     print(node.val)
-    inorder(node.right)
+    inorder_recursive(node.right)
 
 
-def inorder_iterative(node: Node):
+def inorder(node: Node):
     stack = []
     while (stack or node is not None):
         if node is not None:
@@ -83,5 +85,3 @@ root.right.right = Node(9)
 root.right.right.left = Node(4)
 
 inorder(root)
-print('--------------')
-inorder_iterative(root)
