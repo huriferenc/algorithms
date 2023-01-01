@@ -1,7 +1,30 @@
 /**
  * logN
  */
-function binarySearch(arr = [], target = NaN, startIndex = 0, endIndex = NaN) {
+function binarySearch(arr = [], target = NaN) {
+  if (!Array.isArray(arr) || arr.length === 0 || !Number.isSafeInteger(target)) {
+    return -1;
+  }
+
+  let minIndex = 0;
+  let maxIndex = arr.length - 1;
+  let guessIndex;
+  while (minIndex <= maxIndex) {
+    guessIndex = Math.floor((minIndex + maxIndex) / 2);
+
+    if (arr[guessIndex] === target) {
+      return guessIndex;
+    } else if (arr[guessIndex] < target) {
+      minIndex = guessIndex + 1;
+    } else {
+      maxIndex = guessIndex - 1;
+    }
+  }
+
+  return -1;
+}
+
+function binarySearchRecursive(arr = [], target = NaN, startIndex = 0, endIndex = NaN) {
   if (
     !Array.isArray(arr) ||
     arr.length === 0 ||

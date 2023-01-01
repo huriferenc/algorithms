@@ -29,7 +29,7 @@ describe('binarySearch', () => {
       });
     });
   });
-  describe('Infinite recursion:', () => {
+  describe('Non-existing target value:', () => {
     test('return -1 on searching the value of 0 in array [1, 2, 3, 4, 5, 6, 7, 8, 9]', () => {
       const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
       const target = 0;
