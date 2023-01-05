@@ -8,9 +8,8 @@ function binarySearch(arr = [], target = NaN) {
 
   let minIndex = 0;
   let maxIndex = arr.length - 1;
-  let guessIndex;
   while (minIndex <= maxIndex) {
-    guessIndex = Math.floor((minIndex + maxIndex) / 2);
+    const guessIndex = Math.floor((minIndex + maxIndex) / 2);
 
     if (arr[guessIndex] === target) {
       return guessIndex;
