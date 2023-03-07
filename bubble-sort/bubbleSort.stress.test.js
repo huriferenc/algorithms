@@ -10,7 +10,7 @@ function stressTest(n = 100000000, order = 'asc') {
     }
   } else {
     arr[n - 1] = 0;
-    for (let i = 0; i < n - 2; i++) {
+    for (let i = 0; i < n - 1; i++) {
       arr[i] = i;
     }
   }

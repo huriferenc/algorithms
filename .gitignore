@@ -137,3 +137,6 @@
 # Executables
 **/*.exe
 **/*.app
+
+# Python files
+__pycache__/

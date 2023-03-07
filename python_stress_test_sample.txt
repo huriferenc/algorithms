@@ -1,0 +1,44 @@
+
+import unittest
+import time
+
+from testingModule import testingFunction
+
+import sys
+MAX_INTEGER = sys.maxsize * 2 + 1
+
+
+def currentTime():
+    return round(time.time() * 1000)
+
+
+def stressTest(func, params, n=100000000, order='asc'):
+    arr = [None] * n
+
+    if order == 'asc':
+        arr[n-1] = 0
+        for i in range(n-1):
+            arr[i] = i
+    else:
+        arr[0] = 0
+        for i in range(1, n):
+            arr[i] = n-i
+
+    # Start
+    start_time = currentTime()
+
+    # Running
+    func(arr, *params)
+
+    # End
+    print(f'{currentTime() - start_time} msec')
+
+
+class StressTestingFunction(unittest.TestCase):
+    def test10Elements(self):
+        testingFunctionParameters = (1, "test")
+        stressTest(testingFunction, testingFunctionParameters, 10)
+
+
+if __name__ == '__main__':
+    unittest.main()
